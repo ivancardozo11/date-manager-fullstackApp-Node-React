@@ -12,7 +12,7 @@ const veterinarioSchema = mongoose.Schema({
     },
     email: {
         type: String,
-        required,
+        required: true,
         unique: true,
         trim: true
     },
