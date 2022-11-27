@@ -1,18 +1,18 @@
 import express from "express";
 import dotenv from 'dotenv';
 import conectarDB from "./config/db.js";
+import veterinarioRoutes from "./routes/veterinarioRoutes.js";
 
 const app = express();
 dotenv.config();
 
-const PORT = process.env.PORT || 4000
+app.use(express.json());
 
 
 conectarDB();
 
-app.use('/', (req,res)=>{
-    res.send("Hola mundo");
-})
+const PORT = process.env.PORT || 4000
+app.use('/api/veterinarios', veterinarioRoutes);
 
 app.listen(PORT, ()=>{
     console.log(`Server running and working on port ${PORT} :🚀🚀🚀🚀`)
