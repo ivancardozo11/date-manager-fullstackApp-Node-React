@@ -92,7 +92,9 @@ const olvidePassword = async (req, res)=>{
     console.log(email);
 }
 const comprobarToken = (req, res)=>{
+    const { token } = req.params
 
+    console.log(token)
 }
 const nuevoPassword = (req, res)=>{
 
