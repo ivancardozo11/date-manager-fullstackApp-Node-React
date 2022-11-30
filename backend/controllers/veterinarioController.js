@@ -113,7 +113,7 @@ const nuevoPassword = async(req, res)=>{
     const veterinario = await Veterinario.findOne({token});
 
     if (!veterinario) {
-        const error = new Error("Hubo un error");
+        const error = new Error("Hubo un error puede que el token ya haya sido usado");
         return res.status(400).json({msg: error.message});
     }
 
