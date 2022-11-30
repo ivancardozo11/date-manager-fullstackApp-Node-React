@@ -56,6 +56,14 @@ const autenticar = async (req, res)=>{
         const error = new Error('Tu cuenta no ha sido confirmada');
         return res.status(403).json({msg: "Tu cuenta no ha sido confirmada"})
     }
+
+
+    if (await usuario.comprobarPassword(password)) {
+        console.log("Password correcto")
+    }else{
+        const error = new Error("El password es incorrecto");
+        return res.status(403).json({ msg: error.message });
+    }
 };
 
 export{
