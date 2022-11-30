@@ -28,4 +28,4 @@ const pacientesSchema = mongoose.Schema({
 
 const Paciente = mongoose.model("Paciente", pacientesSchema);
 
-export default paciente;
+export default Paciente;

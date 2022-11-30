@@ -13,6 +13,7 @@ conectarDB();
 
 const PORT = process.env.PORT || 4000
 app.use('/api/veterinarios', veterinarioRoutes);
+app.use('/api/pacientes', pacienteRoutes);
 
 app.listen(PORT, ()=>{
     console.log(`Server running and working on port ${PORT} :🚀🚀🚀🚀`)
