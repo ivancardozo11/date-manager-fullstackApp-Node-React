@@ -3,9 +3,9 @@ const router = express.Router();
 import {
     agregarPaciente,
     obtenerPacientes,
- } from '../controllers/PacienteController';
+ } from '../controllers/pacienteController.js';
 
-router.route('/')
+router.route("/")
 .post(agregarPaciente)
 .get(obtenerPacientes);
 
