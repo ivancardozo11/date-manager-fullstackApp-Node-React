@@ -19,8 +19,38 @@ const obtenerPacientes = async(req, res)=>{
 
     res.json(pacientes);
 };
+const obtenerPaciente = async(req, res)=>{
+    const { id } = req.params;
+    const paciente = await Paciente.findById(id);
+
+    if (paciente.veterinario._id.toString() !== req.veterinario._id.toString()) {
+       return res.json({msg: 'Acción no válida'});
+    }
+    if (paciente) {
+        res.json(paciente);
+    }
+
+    console.log(paciente);
+};
+const actualizarPaciente = async(req, res)=>{
+    const pacientes = await Paciente.find()
+    .where('veterinario')
+    .equals(req.veterinario);
+
+    res.json(pacientes);
+};
+const eliminarPaciente = async(req, res)=>{
+    const pacientes = await Paciente.find()
+    .where('veterinario')
+    .equals(req.veterinario);
+
+    res.json(pacientes);
+};
 
 export{
     agregarPaciente, 
-    obtenerPacientes
+    obtenerPacientes,
+    obtenerPaciente,
+    actualizarPaciente,
+    eliminarPaciente
 };
