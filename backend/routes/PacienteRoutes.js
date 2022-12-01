@@ -4,11 +4,10 @@ import {
     agregarPaciente,
     obtenerPacientes,
  } from '../controllers/pacienteController.js';
-
  import checkAuth from "../middleware/authMiddleware.js";
 
 router.route("/")
 .post(checkAuth, agregarPaciente)
-.get(obtenerPacientes);
+.get(checkAuth, obtenerPacientes);
 
 export default router;
